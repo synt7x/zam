@@ -18,7 +18,6 @@ if (args.length == 0) {
         ${yellow("Zam")} ${gray("-")} ${red("Command not found!")}
         ${green("zam")} ${gray("Start your app")}
         ${green("zam init")} ${red("<library>")} ${gray("Create a new project using specified Deno library")}
-        ${green("zam clone")} ${red("<url>")} ${gray("Create a new app from a Zam project on the registry (https://zam.mod.land)")}
         ${green("zam help")} ${gray("Shows this message")}
     `);
 };
