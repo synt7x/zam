@@ -1,5 +1,7 @@
 import { fileExists, zamfile } from "../../utils.ts";
 import { yellow, red, green, gray } from "https://deno.land/std@0.84.0/fmt/colors.ts";
+
+import { cache } from "https://deno.land/x/cache/mod.ts";
 import { index } from "./index.ts";
 
 export const init = async (args: string[], location: string) => {
@@ -37,7 +39,10 @@ export const init = async (args: string[], location: string) => {
     };
 
     // Load app
-    await Deno.copyFile(new URL(`../templates/${args[0]}/app.ts`, import.meta.url).pathname.substring(1), `${location}/app.ts`);
+    let appCache = await cache(`https://deno.land/x/zam/src/templates/${args[0]}/app.ts`)
+    let app = appCache.path;
+
+    await Deno.copyFile(app, `${location}/app.ts`);
 
     if (!fileExists("./app.ts")) {
         console.log(`✔️  ${yellow("app.ts")} ${green("created!\n")}`);
@@ -48,8 +53,14 @@ export const init = async (args: string[], location: string) => {
     // Load assets
     console.log(`⚙️  ${yellow("Loading assets...")}`);
 
-    await Deno.copyFile(new URL(`../templates/page/assets/style.css`, import.meta.url).pathname.substring(1), `${location}/assets/style.css`);
-    await Deno.copyFile(new URL(`../templates/page/assets/Zam.svg`, import.meta.url).pathname.substring(1), `${location}/assets/Zam.svg`);
+    let zamSvgCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/Zam.svg`)
+    let zamSvg = appCache.path;
+
+    let stylesheetCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/style.css`)
+    let stylesheet = appCache.path;
+
+    await Deno.copyFile(stylesheet, `${location}/assets/style.css`);
+    await Deno.copyFile(stylesheet, `${location}/assets/Zam.svg`);
 
     console.log(`✔️  ${green("Assets loaded!\n")}`);
 
