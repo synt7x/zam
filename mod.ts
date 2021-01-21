@@ -1,4 +1,4 @@
-let args = Deno.args.slice(1);
+let args = Deno.args;
 let cwd  = Deno.cwd();
 
 import { index, init, help } from "./src/handler.ts";
