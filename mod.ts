@@ -20,4 +20,6 @@ if (args.length == 0) {
         ${green("zam init")} ${red("<library>")} ${gray("Create a new project using specified Deno library")}
         ${green("zam help")} ${gray("Shows this message")}
     `);
+
+    // ${green("zam clone")} ${red("<url>")} ${gray("Create a new app from a Zam project on the registry (https://zam.mod.land)")}
 };

@@ -54,21 +54,21 @@ export const init = async (args: string[], location: string) => {
     console.log(`⚙️  ${yellow("Loading assets...")}`);
 
     let zamSvgCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/Zam.svg`)
-    let zamSvg = appCache.path;
+    let zamSvg = zamSvgCache.path;
 
     let stylesheetCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/style.css`)
-    let stylesheet = appCache.path;
+    let stylesheet = stylesheetCache.path;
 
     await Deno.copyFile(stylesheet, `${location}/assets/style.css`);
-    await Deno.copyFile(stylesheet, `${location}/assets/Zam.svg`);
+    await Deno.copyFile(zamSvg, `${location}/assets/Zam.svg`);
 
     console.log(`✔️  ${green("Assets loaded!\n")}`);
 
     // Load views
     console.log(`⚙️  ${yellow("Loading views...")}`);
 
-    let htmlCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/style.css`)
-    let html = appCache.path;
+    let htmlCache = await cache(`https://deno.land/x/zam/src/templates/page/views/index.html`)
+    let html = htmlCache.path;
 
     await Deno.copyFile(html, `${location}/views/index.html`);
 
