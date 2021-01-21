@@ -1,0 +1,62 @@
+/* ZAM CSS */
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3vmax;
+
+    color: white;
+    background-color: #2b2b2b;
+    text-align: center;
+
+    overflow: hidden;
+}
+
+span {
+    text-align: center;
+
+    padding: 1vmin;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+}
+
+div {    
+    width: max-content;
+
+    padding: 1vmin;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+    text-align: left;
+}
+
+yellow {
+    color: #fff16e
+}
+
+green {
+    color: #8bff6e
+}
+
+red {
+    color: #ff6e6e
+}
+
+grey {
+    color: #4b4b4b;
+}
+article {
+   position: relative;
+
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%); 
+}
+
+header {
+    height: 100vh;
+    position: relative;
+}
+
+header img {
+    margin: 0;
+    width: 25vmax;
+    height: 25vmax;
+}
