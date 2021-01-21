@@ -67,7 +67,10 @@ export const init = async (args: string[], location: string) => {
     // Load views
     console.log(`⚙️  ${yellow("Loading views...")}`);
 
-    await Deno.copyFile(new URL(`../templates/page/views/index.html`, import.meta.url).pathname.substring(1), `${location}/views/index.html`);
+    let htmlCache = await cache(`https://deno.land/x/zam/src/templates/page/assets/style.css`)
+    let html = appCache.path;
+
+    await Deno.copyFile(html, `${location}/views/index.html`);
 
     console.log(`✔️  ${green("Views loaded!\n")}`);
     console.log(`⚙️  ${yellow("Configuring Zam...")}`);
